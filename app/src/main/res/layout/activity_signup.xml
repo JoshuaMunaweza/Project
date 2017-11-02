@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height ="match_parent"
+    android:layout_width ="match_parent"
+    android:orientation ="vertical"
+    >
+
+    <EditText
+        android:id="@+id/FName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint = "@string/firstname"/>
+
+    <EditText
+        android:id="@+id/LName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/lastname" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Email"/>
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txtpassword"/>
+
+
+    <Button
+        android:id="@+id/SignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/signup"
+        android:background="@color/signup_color"
+        android:textSize="@dimen/textSize"
+        />
+</LinearLayout>
+

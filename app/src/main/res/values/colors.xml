@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#565</color>
+    <color name="colorPrimaryDark">#563</color>
+    <color name="colorAccent">#FF4033</color>
+
+
+
+    <color name="login_color">#FF4033</color>
+    <color name="signup_color">#FF4033</color>
+    <color name="createAcc_color">#00f</color>
+
+</resources>
