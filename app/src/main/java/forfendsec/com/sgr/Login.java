@@ -27,4 +27,37 @@ public class Login extends AppCompatActivity {
         });
     }
 
+
+    int _id;
+    String password;
+
+    public Login(int id, String password) {
+        this._id = id;
+        this.password = password;
+    }
+
+    public Login(String password) {
+        this.password = password;
+    }
+
+    public Login() {
+
+    }
+
+    public int getId() {
+        return this._id;
+    }
+
+    public void setId(int id) {
+        this._id = id;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
+

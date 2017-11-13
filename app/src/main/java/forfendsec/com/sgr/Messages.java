@@ -11,46 +11,52 @@ public class Messages {
     String sms;
     String _phone_number;
 
-    public Messages(int id, String sms, String name, String _phone_number){
+    public Messages(int id, String sms, String name, String _phone_number) {
         this._id = id;
         this.sms = sms;
         this._phone_number = _phone_number;
         this.name = name;
     }
 
-    public Messages(String sms, String name, String _phone_number){
+    public Messages(String sms, String name, String _phone_number) {
         this.sms = sms;
         this._phone_number = _phone_number;
         this.name = name;
     }
 
-    public Messages(){
+    public Messages() {
 
     }
 
     public int getId() {
         return this._id;
     }
-    public void setId(int id){
+
+    public void setId(int id) {
         this._id = id;
     }
 
     public String getName() {
         return this.name;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public String getPhone_number(){
+
+    public String getPhone_number() {
         return this._phone_number;
     }
-    public void setPhone_number(String phone_number){
+
+    public void setPhone_number(String phone_number) {
         this._phone_number = phone_number;
     }
-    public String getSms(){
+
+    public String getSms() {
         return this.sms;
     }
-    public void setSms(String sms){
+
+    public void setSms(String sms) {
         this.sms = sms;
     }
 }

@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         listData = (ListView)findViewById(R.id.data);
         dumpDB = new DBHandler(this);
 
@@ -40,11 +40,29 @@ public class MainActivity extends AppCompatActivity {
         db.addMessage(new Messages("Yo niko online on FIFA", "9400000000", "Kieth"));
         db.addMessage(new Messages("Cheki msee achana na huyo dem", "9200000000", "John"));
 
+
+        db.addSignUp(new Signup("Joshua", "Munaweza", "joshua.munaweza@strathmore.edu", "linux1234"));
+        db.addSignUp(new Signup("Eric", "Otis", "otis76@gmail.com", "nasanrm"));
+        db.addSignUp(new Signup("Stephen", "Kiema", "tesphen@strathmore.edu", "Djdemakufu254"));
+        db.addSignUp(new Signup("Benson", "Kibet", "bensonkibet@yahoo.com", "Battlefield3Rules"));
+
+        db.addLogin(new Login(33754423, "linux1234"));
+        db.addLogin(new Login(30321245, "nasanrm"));
+        db.addLogin(new Login(33567632,"Djdemakufu254"));
+        db.addLogin(new Login(34456653, "Battlefield3Rules"));
+
+
         List<Contacts> contacts = db.getAllContacts();
         Log.d("Reading: ", "Reading all contacts...");
 
         List<Messages> messages = db.getAllMessages();
         Log.d("Reading: ", "Reading all messages...");
+
+        List<Signup> signup = db.getAllSignUp();
+        Log.d("Reading: ", "Reading all users...");
+
+        List<Login> login = db.getAllLogin();
+        Log.d("Reading: ", "Reading all logins...");
 
         for (Contacts cn : contacts) {
             String log = "id: " + cn.getId() + ",Name: " + cn.getName() + " ,Phone: " + cn.getPhone_number();
@@ -56,6 +74,19 @@ public class MainActivity extends AppCompatActivity {
             String log = "id: " + cn.getId() + ",Phone: " + cn.getName() + " ,From: " + cn.getPhone_number() + " ,Message: " + cn.getSms();
 
             Log.d("messages ", log);
+        }
+
+        for (Signup cn : signup) {
+            String log = "id: " + cn.getId() + ",First_Name: " + cn.getFirst_name() + " ,Last_Name: "
+            + cn.getLast_name() + " ,Email: " + cn.getEmail() + " ,Password: " + cn.getPassword();
+
+            Log.d("users ", log);
+        }
+
+        for (Login cn : login) {
+            String log = "id: " + cn.getId() + " ,Password: " + cn.getPassword();
+
+            Log.d("login ", log);
         }
 
     }

@@ -25,12 +25,21 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final String TABLE_CONTACTS = "contacts";
     private static final String TABLE_MESSAGES = "messages";
+    private static final String TABLE_SIGNUP = "signup";
+    private static final String TABLE_LOGIN = "login";
+
 
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_PH_N0 = "phone_number";
-
     private static final String KEY_SMS = "sms";
+
+    private static final String KEY_FIRSTNAME = "first_name";
+    private static final String KEY_LASTNAME = "last_name";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_PASSWORD = "password";
+
+
 
     private static final String CREATE_TABLE_CONTACTS = "CREATE TABLE "
             + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME
@@ -39,8 +48,17 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_MESSAGES = "CREATE TABLE "
             + TABLE_MESSAGES + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME
-            + " TEXT," + KEY_PH_N0 + " TEXT," + KEY_SMS
-            + " TEXT" + ")";
+            + " TEXT," + KEY_PH_N0 + " TEXT," + KEY_SMS + " TEXT" + ")";
+
+
+    private static final String CREATE_TABLE_SIGNUP = "CREATE TABLE "
+            + TABLE_SIGNUP + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_FIRSTNAME
+            + " TEXT," + KEY_LASTNAME + " TEXT," + KEY_EMAIL + " TEXT,"
+            + KEY_PASSWORD + " TEXT" + ")";
+
+
+    private static final String CREATE_TABLE_LOGIN = "CREATE TABLE "
+            + TABLE_LOGIN + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_PASSWORD + " TEXT" + ")";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -51,6 +69,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(CREATE_TABLE_CONTACTS);
         sqLiteDatabase.execSQL(CREATE_TABLE_MESSAGES);
+        sqLiteDatabase.execSQL(CREATE_TABLE_SIGNUP);
+        sqLiteDatabase.execSQL(CREATE_TABLE_LOGIN);
     }
 
     @Override
@@ -58,6 +78,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_MESSAGES);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_SIGNUP);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGIN);
         onCreate(sqLiteDatabase);
     }
 
@@ -81,6 +103,30 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_SMS, messages.getSms());
 
         sqLiteDatabase.insert(TABLE_MESSAGES, null, values);
+        sqLiteDatabase.close();
+    }
+
+    public void addSignUp(Signup signup) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_FIRSTNAME, signup.getFirst_name());
+        values.put(KEY_LASTNAME, signup.getLast_name());
+        values.put(KEY_EMAIL, signup.getEmail());
+        values.put(KEY_PASSWORD, signup.getPassword());
+
+        sqLiteDatabase.insert(TABLE_SIGNUP, null, values);
+        sqLiteDatabase.close();
+    }
+
+    public void addLogin(Login login) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ID, login.getId());
+        values.put(KEY_PASSWORD, login.getPassword());
+
+        sqLiteDatabase.insert(TABLE_LOGIN, null, values);
         sqLiteDatabase.close();
     }
 
@@ -111,6 +157,36 @@ public class DBHandler extends SQLiteOpenHelper {
                 cursor.getString(1), cursor.getString(2), cursor.getString(3));
 
         return messages;
+    }
+
+    public Signup getSignUp(int id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_SIGNUP, new String[]{KEY_ID, KEY_FIRSTNAME, KEY_LASTNAME, KEY_EMAIL, KEY_PASSWORD}, KEY_ID + "+?", new String[]{String.valueOf(id)}, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+
+        Signup signup = new Signup(parseInt(cursor.getString(0)),
+                cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+
+        return signup;
+    }
+
+    public Login getLogin(int id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_LOGIN, new String[]{KEY_ID, KEY_PASSWORD}, KEY_ID + "+?", new String[]{String.valueOf(id)}, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+
+        Login login = new Login(parseInt(cursor.getString(0)),
+                cursor.getString(1));
+
+        return login;
     }
 
     public List<Contacts> getAllContacts() {
@@ -156,6 +232,50 @@ public class DBHandler extends SQLiteOpenHelper {
         return messagesList;
     }
 
+    public List<Signup> getAllSignUp() {
+        List<Signup> signupList = new ArrayList<Signup>();
+
+        String selectQuery = "SELECT * FROM " + TABLE_SIGNUP;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Signup signup = new Signup();
+                signup.setId(Integer.parseInt(cursor.getString(0)));
+                signup.setFirst_name(cursor.getString(1));
+                signup.setLast_name(cursor.getString(2));
+                signup.setEmail(cursor.getString(3));
+                signup.setPassword(cursor.getString(4));
+
+                signupList.add(signup);
+            } while (cursor.moveToNext());
+        }
+        return signupList;
+    }
+
+    public List<Login> getAllLogin() {
+        List<Login> loginList = new ArrayList<Login>();
+
+        String selectQuery = "SELECT * FROM " + TABLE_LOGIN;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Login login = new Login();
+                login.setId(Integer.parseInt(cursor.getString(0)));
+                login.setPassword(cursor.getString(1));
+
+
+                loginList.add(login);
+            } while (cursor.moveToNext());
+        }
+        return loginList;
+    }
+
     public int getContactsCount() {
         String countQuery = "SELECT * FROM " + TABLE_CONTACTS;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -173,6 +293,25 @@ public class DBHandler extends SQLiteOpenHelper {
 
         return cursor.getCount();
     }
+
+    public int getSignUpCount() {
+        String countQuery = "SELECT * FROM " + TABLE_SIGNUP;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        return cursor.getCount();
+    }
+
+    public int getLoginCount() {
+        String countQuery = "SELECT * FROM " + TABLE_LOGIN;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        return cursor.getCount();
+    }
+
     public int updateContact(Contacts contacts) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -194,6 +333,28 @@ public class DBHandler extends SQLiteOpenHelper {
         return db.update(TABLE_MESSAGES, values, KEY_ID + "-?", new String[]{String.valueOf(messages.getId())});
     }
 
+    public int updateSignUp(Signup signup) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_FIRSTNAME, signup.getFirst_name());
+        values.put(KEY_LASTNAME, signup.getLast_name());
+        values.put(KEY_EMAIL, signup.getEmail());
+        values.put(KEY_PASSWORD, signup.getPassword());
+
+        return db.update(TABLE_SIGNUP, values, KEY_ID + "-?", new String[]{String.valueOf(signup.getId())});
+    }
+
+    public int updateLogin(Login login) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ID, login.getId());
+        values.put(KEY_PASSWORD, login.getPassword());
+
+        return db.update(TABLE_LOGIN, values, KEY_ID + "-?", new String[]{String.valueOf(login.getId())});
+    }
+
     public void deleteContact(Contacts contacts) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CONTACTS, KEY_ID + "= ?", new String[]{String.valueOf(contacts.getId())});
@@ -204,6 +365,20 @@ public class DBHandler extends SQLiteOpenHelper {
     public void deleteMessages(Messages messages) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_MESSAGES, KEY_ID + "= ?", new String[]{String.valueOf(messages.getId())});
+
+        db.close();
+    }
+
+    public void deleteSignUp(Signup signup) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_SIGNUP, KEY_ID + "= ?", new String[]{String.valueOf(signup.getId())});
+
+        db.close();
+    }
+
+    public void deleteLogin(Login login) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_LOGIN, KEY_ID + "= ?", new String[]{String.valueOf(login.getId())});
 
         db.close();
     }
