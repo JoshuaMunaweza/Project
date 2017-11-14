@@ -25,6 +25,12 @@
         android:hint="@string/Email"/>
 
     <EditText
+        android:id="@+id/National_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/National_ID"/>
+
+    <EditText
         android:id="@+id/Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

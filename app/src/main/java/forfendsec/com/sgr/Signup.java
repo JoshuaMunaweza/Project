@@ -16,14 +16,6 @@ public class Signup extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
-        Button register_button = (Button) findViewById(R.id.Signup);
-        register_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Signup.this, MainActivity.class));
-            }
-        });
     }
 
 

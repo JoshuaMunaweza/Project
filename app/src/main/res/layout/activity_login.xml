@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:background="@color/login_color"
         android:hint="@string/login"
-        android:textSize="@dimen/textSize" />
+        android:textSize="@dimen/textSize"
+        android:onClick="userLogin"/>
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/Signup"
@@ -38,15 +39,7 @@
         android:layout_height="wrap_content"
         android:background="@color/createAcc_color"
         android:text="@string/create_account"
-        android:textSize="@dimen/textSize" />
+        android:textSize="@dimen/textSize"
+        android:onClick="createAcc"/>
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:divider="#d1d1d1"
-        android:dividerHeight="10dp"
-        android:id="@+id/data" />
 </LinearLayout>
