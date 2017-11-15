@@ -1,21 +1,32 @@
 package forfendsec.com.sgr;
 
 /**
- * Created by root on 11/1/17.
+ * Created by Joshua Munaweza on 11/1/17.
  */
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 
-public class Signup extends Activity {
+public class Signup extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_signup);
+        Button signup_button = (Button) findViewById(R.id.SignUp);
+        signup_button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent signup = new Intent(Signup.this, Login.class);
+                startActivity(signup);
+            }
+        });
     }
 
 

@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        this.setTitle(getResources().getString(R.string.Login_Activity));
+
         setContentView(R.layout.activity_login);
         Button login_button = (Button) findViewById(R.id.Login);
         login_button.setOnClickListener(new View.OnClickListener() {

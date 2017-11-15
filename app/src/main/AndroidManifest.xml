@@ -16,15 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
-        <activity android:name=".Signup">
+        <activity android:name=".Signup"
+            android:label="@string/Create_Account_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.RUN" />
 
@@ -32,7 +35,17 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Login">
+        <activity android:name=".Login"
+            android:label="@string/Login_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.RUN" />
+
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Home"
+            android:label="@string/Home_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.RUN" />
 
@@ -53,7 +66,7 @@
 
         <activity
             android:name=".train_location"
-            android:label="@string/title_activity_train_location"></activity>
+            android:label="@string/title_activity_train_location" />
     </application>
 
 </manifest>

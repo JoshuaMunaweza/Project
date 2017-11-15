@@ -17,4 +17,7 @@
     <string name="Welcome">Welcome</string>
     <string name="title_activity_train_location">Map</string>
     <string name="google_maps_key">google_maps_key</string>
+    <string name="Login_Activity">Login</string>
+    <string name="Home_Activity">Home</string>
+    <string name="Create_Account_Activity">Create Account</string>
 </resources>

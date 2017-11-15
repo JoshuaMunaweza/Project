@@ -41,14 +41,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="forfendsec.com.sgr.Signup" >
+        <activity
+            android:name="forfendsec.com.sgr.Signup"
+            android:label="@string/Create_Account_Activity" >
             <intent-filter>
                 <action android:name="android.intent.action.RUN" />
 
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </activity>
-        <activity android:name="forfendsec.com.sgr.Login" >
+        <activity
+            android:name="forfendsec.com.sgr.Login"
+            android:label="@string/Login_Activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.RUN" />
+
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="forfendsec.com.sgr.Home"
+            android:label="@string/Home_Activity" >
             <intent-filter>
                 <action android:name="android.intent.action.RUN" />
 
