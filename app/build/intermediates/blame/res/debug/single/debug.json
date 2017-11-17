@@ -384,6 +384,10 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/6d43dd903cb8cd06c2fd03d9c347b17f/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
     },
     {
+        "merged": "/root/AndroidStudioProjects/SGR/app/build/intermediates/res/merged/debug/layout_activity_economy.xml.flat",
+        "source": "/root/AndroidStudioProjects/SGR/app/src/main/res/layout/activity_economy.xml"
+    },
+    {
         "merged": "/root/AndroidStudioProjects/SGR/app/build/intermediates/res/merged/debug/drawable_abc_switch_thumb_material.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/742165f4290087267e75dcb15733705f/res/drawable/abc_switch_thumb_material.xml"
     },
@@ -1034,6 +1038,10 @@
     {
         "merged": "/root/AndroidStudioProjects/SGR/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/742165f4290087267e75dcb15733705f/res/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/root/AndroidStudioProjects/SGR/app/build/intermediates/res/merged/debug/layout_activity_class.xml.flat",
+        "source": "/root/AndroidStudioProjects/SGR/app/src/main/res/layout/activity_class.xml"
     },
     {
         "merged": "/root/AndroidStudioProjects/SGR/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",

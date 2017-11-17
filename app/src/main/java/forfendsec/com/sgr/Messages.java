@@ -1,10 +1,12 @@
 package forfendsec.com.sgr;
 
+import android.support.v7.app.AppCompatActivity;
+
 /**
  * Created by root on 11/1/17.
  */
 
-public class Messages {
+public class Messages extends AppCompatActivity{
 
     int _id;
     String name;

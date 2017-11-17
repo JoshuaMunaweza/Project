@@ -16,8 +16,8 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_home);
+
         ImageButton logout_button = (ImageButton) findViewById(R.id.iconLogout);
         logout_button.setOnClickListener(new View.OnClickListener() {
 
@@ -25,6 +25,16 @@ public class Home extends AppCompatActivity {
             public void onClick(View view) {
                 Intent logout = new Intent(Home.this, Login.class);
                 startActivity(logout);
+            }
+        });
+
+        ImageButton ticket_button = (ImageButton) findViewById(R.id.iconTicket);
+        ticket_button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent book = new Intent(Home.this, ClassSelection.class);
+                startActivity(book);
             }
         });
     }

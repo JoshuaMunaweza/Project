@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-72:12
-INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-72:12
-INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-72:12
-INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-72:12
+ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-90:12
+INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-90:12
+INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-90:12
+INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-90:12
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/742165f4290087267e75dcb15733705f/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /root/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/2844e55081266d69fdee17fb05fcbef2/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-maps:11.0.4] /root/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/6add4ae2a29a0c55e6ada57b3b7f056a/AndroidManifest.xml:16:1-25:12
@@ -18,20 +18,20 @@ MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /root/.gradle/c
 MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /root/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/96fcd84eb53cb3fe6aa5bebf55695fe2/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /root/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/1e1c92a7ef8c7c821f426a2ad05a7cc9/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] /root/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/223a7cc35259798acc2730bd6b2d757f/AndroidManifest.xml:17:1-31:12
-INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-72:12
-INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-72:12
-INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-72:12
+INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-90:12
+INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-90:12
+INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-90:12
 	package
 		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:3:5-33
 		INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml
 		INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml
-		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-72:12
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-90:12
 		INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml
-		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-72:12
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:1-90:12
 		INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:2:11-69
@@ -40,7 +40,7 @@ ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:10:5
 	android:name
 		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:10:22-76
 application
-ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:12:5-70:19
+ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:12:5-88:19
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/742165f4290087267e75dcb15733705f/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/742165f4290087267e75dcb15733705f/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /root/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/2844e55081266d69fdee17fb05fcbef2/AndroidManifest.xml:9:5-20
@@ -123,18 +123,30 @@ ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:47:9
 		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:48:13-50
 	android:name
 		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:47:19-39
-meta-data#com.google.android.geo.API_KEY
-ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:63:9-65:55
-	android:value
-		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:65:13-52
-	android:name
-		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:64:13-58
-activity#forfendsec.com.sgr.train_location
-ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:67:9-69:69
+activity#forfendsec.com.sgr.ClassSelection
+ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:56:9-63:20
 	android:label
-		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:69:13-66
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:57:13-49
 	android:name
-		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:68:13-43
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:56:19-49
+activity#forfendsec.com.sgr.Economy
+ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:65:9-72:20
+	android:label
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:66:13-50
+	android:name
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:65:19-42
+meta-data#com.google.android.geo.API_KEY
+ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:81:9-83:55
+	android:value
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:83:13-52
+	android:name
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:82:13-58
+activity#forfendsec.com.sgr.train_location
+ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:85:9-87:69
+	android:label
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:87:13-66
+	android:name
+		ADDED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml:86:13-43
 uses-sdk
 INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /root/AndroidStudioProjects/SGR/app/src/main/AndroidManifest.xml

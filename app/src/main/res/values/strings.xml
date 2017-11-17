@@ -20,4 +20,8 @@
     <string name="Login_Activity">Login</string>
     <string name="Home_Activity">Home</string>
     <string name="Create_Account_Activity">Create Account</string>
+    <string name="Class_select_prompt">Please select a class of choice!</string>
+    <string name="Economy_Class">Economy Class</string>
+    <string name="First_Class">First Class</string>
+    <string name="Select_Class">Select Class</string>
 </resources>
