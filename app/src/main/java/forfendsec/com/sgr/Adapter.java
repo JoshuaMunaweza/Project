@@ -4,6 +4,7 @@ package forfendsec.com.sgr;
  * Created by root on 11/1/17.
  */
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,39 +17,49 @@ import java.util.List;
 
 public class Adapter extends BaseAdapter {
     private Context myContext;
-    private List<Messages> myLists;
+    private List<Economy> trainList;
 
-    public Adapter(Context myContext, List<Messages> myLists){
+    public Adapter(Context myContext, List<Economy> trainList){
         this.myContext = myContext;
-        this.myLists = myLists;
+        this.trainList = trainList;
     }
 
-    @Override
-    public int getCount() {
-        return myLists.size();
-    }
 
     @Override
     public Object getItem(int position) {
-        return myLists.get(position);
+        return trainList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return myLists.get(position).getId();
+        return trainList.get(position).getId();
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
-        View v = View.inflate(myContext, R.layout.items,null);
-        TextView Name = v.findViewById(R.id.jina);
-        TextView Phone = v.findViewById(R.id.simu);
-        TextView Sms = v.findViewById(R.id.meso);
+    public int getCount() {
+        return trainList.size();
+    }
 
-        Name.setText(myLists.get(position).getName());
-        Phone.setText(myLists.get(position).getPhone_number());
-        Sms.setText(myLists.get(position).getSms());
+
+
+
+    @Override
+    public View getView(int position, View view, ViewGroup viewGroup) {
+        @SuppressLint("ViewHolder") View v = View.inflate(myContext, R.layout.items,null);
+        TextView Train = v.findViewById(R.layout.id.train);
+        TextView Price = v.findViewById(R.layout.id.pimu);
+        TextView Destination = v.findViewById(R.layout.id.destination);
+        TextView Seats = v.findViewById(R.layout.id.seats);
+
+        Train.setText(trainList.get(position).getTrain());
+        Price.setText(trainList.get(position).getPrice());
+        Destination.setText(trainList.get(position).getDestination());
+        Seats.setText(trainList.get(position).getSeats());
         return v;
     }
 
 }
+
+
+
+

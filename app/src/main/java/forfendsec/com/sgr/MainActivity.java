@@ -68,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
         db.addLogin(new Login(33567632,"Djdemakufu254"));
         db.addLogin(new Login(34456653, "Battlefield3Rules"));
 
+        db.addEconomy(new Economy(2541,"Madaraka Express", "Nairobi-Mombasa", "17", "700"));
+        db.addEconomy(new Economy(2542,"Mariakani Express", "Mariakani-Nairobi", "33", "700"));
+        db.addEconomy(new Economy(2543,"Kikuyu Express", "Kikuyu-Mombasa", "7", "1,000"));
+        db.addEconomy(new Economy(2544,"Mombasa Express", "Mombasa-Nairobi", "40", "700"));
+        db.addEconomy(new Economy(2545,"Mtito-Andei Express", "Mtito Andei-Mombasa", "50", "500"));
+
+
 
         List<Contacts> contacts = db.getAllContacts();
         Log.d("Reading: ", "Reading all contacts...");
@@ -80,6 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
         List<Login> login = db.getAllLogin();
         Log.d("Reading: ", "Reading all logins...");
+
+        List<Economy> economy = db.getAllEconomy();
+        Log.d("Reading: ", "Reading all trains...");
+
+
 
         for (Contacts cn : contacts) {
             String log = "id: " + cn.getId() + ",Name: " + cn.getName() + " ,Phone: " + cn.getPhone_number();
@@ -104,6 +116,13 @@ public class MainActivity extends AppCompatActivity {
             String log = "id: " + cn.getId() + " ,Password: " + cn.getPassword();
 
             Log.d("login ", log);
+        }
+
+        for (Economy cn : economy) {
+            String log = "train_id: " + cn.getId() + ",Train: " + cn.getTrain() + " ,Destination: "
+                    + cn.getDestination() + " ,Seats: " + cn.getSeats() + " ,Price: " + cn.getPrice();
+
+            Log.d("economy ", log);
         }
 
     }

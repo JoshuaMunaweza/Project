@@ -23,5 +23,11 @@
     <string name="Class_select_prompt">Please select a class of choice!</string>
     <string name="Economy_Class">Economy Class</string>
     <string name="First_Class">First Class</string>
-    <string name="Select_Class">Select Class</string>
+    <string name="Train">Train</string>
+    <string name="Destination">Destination</string>
+    <string name="Seats">Seats</string>
+    <string name="Price">Price</string>
+    <string name="Select_Class"></string>
+
+
 </resources>

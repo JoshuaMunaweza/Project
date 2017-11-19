@@ -10,24 +10,31 @@
     <TextView
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:id = "@+id/jina"
-        android:text="Name: "
+        android:id = "@+id/train"
+        android:text="@string/Train"
         android:textColor="#b30000"
         />
 
     <TextView
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:id = "@+id/simu"
-        android:text="Phone: "
+        android:id = "@+id/price"
+        android:text="@string/Price"
 
         />
 
     <TextView
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:id = "@+id/meso"
-        android:text="Message: "
+        android:id = "@+id/destination"
+        android:text="@string/Destination"
+        />
+
+    <TextView
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:id = "@+id/seats"
+        android:text="@string/Seats"
         />
 
 

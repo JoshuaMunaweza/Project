@@ -27,6 +27,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String TABLE_MESSAGES = "messages";
     private static final String TABLE_SIGNUP = "signup";
     private static final String TABLE_LOGIN = "login";
+    private static final String TABLE_ECONOMY ="economy";
 
 
     private static final String KEY_ID = "id";
@@ -38,6 +39,12 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_LASTNAME = "last_name";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
+
+    private static final String KEY_TRAIN_ID ="_train_id";
+    private static final String KEY_TRAIN = "train";
+    private static final String KEY_DESTINATION = "destination";
+    private static final String KEY_SEAT = "seat";
+    private static final String KEY_PRICE = "price";
 
 
 
@@ -60,6 +67,12 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_LOGIN = "CREATE TABLE "
             + TABLE_LOGIN + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_PASSWORD + " TEXT" + ")";
 
+
+    private static final String CREATE_TABLE_ECONOMY = "CREATE TABLE "
+            + TABLE_ECONOMY + "(" + KEY_TRAIN_ID + " INTEGER PRIMARY KEY," + KEY_TRAIN
+            + " TEXT," + KEY_DESTINATION + " TEXT," + KEY_SEAT + " TEXT,"
+            + KEY_PRICE + " TEXT" + ")";
+
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -71,6 +84,7 @@ public class DBHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_TABLE_MESSAGES);
         sqLiteDatabase.execSQL(CREATE_TABLE_SIGNUP);
         sqLiteDatabase.execSQL(CREATE_TABLE_LOGIN);
+        sqLiteDatabase.execSQL(CREATE_TABLE_ECONOMY);
     }
 
     @Override
@@ -80,6 +94,8 @@ public class DBHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_MESSAGES);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_SIGNUP);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGIN);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_ECONOMY);
+
         onCreate(sqLiteDatabase);
     }
 
@@ -130,6 +146,20 @@ public class DBHandler extends SQLiteOpenHelper {
         sqLiteDatabase.close();
     }
 
+
+    public void addEconomy(Economy economy) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_TRAIN_ID, economy.getId());
+        values.put(KEY_TRAIN, economy.getTrain());
+        values.put(KEY_DESTINATION, economy.getDestination());
+        values.put(KEY_SEAT, economy.getSeats());
+        values.put(KEY_PRICE, economy.getPrice());
+
+        sqLiteDatabase.insert(TABLE_ECONOMY, null, values);
+        sqLiteDatabase.close();
+    }
     public Contacts getContact(int id) {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -187,6 +217,21 @@ public class DBHandler extends SQLiteOpenHelper {
                 cursor.getString(1));
 
         return login;
+    }
+
+    public Economy getEconomy(int id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_ECONOMY, new String[]{KEY_TRAIN_ID, KEY_PRICE}, KEY_TRAIN_ID + "+?", new String[]{String.valueOf(id)}, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+
+        Economy economy = new Economy(parseInt(cursor.getString(0)),
+                cursor.getString(1),cursor.getString(2), cursor.getString(3),cursor.getString(4));
+
+        return economy;
     }
 
     public List<Contacts> getAllContacts() {
@@ -276,6 +321,29 @@ public class DBHandler extends SQLiteOpenHelper {
         return loginList;
     }
 
+    public List<Economy> getAllEconomy() {
+        List<Economy> economyList = new ArrayList<Economy>();
+
+        String selectQuery = "SELECT * FROM " + TABLE_ECONOMY;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Economy economy = new Economy();
+                economy.setId(Integer.parseInt(cursor.getString(0)));
+                economy.setTrain(cursor.getString(1));
+                economy.setDestination(cursor.getString(2));
+                economy.setSeats(cursor.getString(3));
+                economy.setPrice(cursor.getString(4));
+
+                economyList.add(economy);
+            } while (cursor.moveToNext());
+        }
+        return economyList;
+    }
+
     public int getContactsCount() {
         String countQuery = "SELECT * FROM " + TABLE_CONTACTS;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -305,6 +373,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public int getLoginCount() {
         String countQuery = "SELECT * FROM " + TABLE_LOGIN;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        return cursor.getCount();
+    }
+
+    public int getEconomyCount() {
+        String countQuery = "SELECT * FROM " + TABLE_ECONOMY;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         cursor.close();
@@ -355,6 +432,18 @@ public class DBHandler extends SQLiteOpenHelper {
         return db.update(TABLE_LOGIN, values, KEY_ID + "-?", new String[]{String.valueOf(login.getId())});
     }
 
+    public int updateEconomy(Economy economy) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_TRAIN, economy.getTrain());
+        values.put(KEY_DESTINATION, economy.getDestination());
+        values.put(KEY_SEAT, economy.getSeats());
+        values.put(KEY_PRICE, economy.getPrice());
+
+        return db.update(TABLE_ECONOMY, values, KEY_TRAIN_ID + "-?", new String[]{String.valueOf(economy.getId())});
+    }
+
     public void deleteContact(Contacts contacts) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_CONTACTS, KEY_ID + "= ?", new String[]{String.valueOf(contacts.getId())});
@@ -382,6 +471,14 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.close();
     }
+
+    public void deleteEconomy(Economy economy) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_ECONOMY, KEY_TRAIN_ID + "= ?", new String[]{String.valueOf(economy.getId())});
+
+        db.close();
+    }
+
 }
 
 
